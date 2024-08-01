@@ -103,7 +103,7 @@ function App() {
             filesLimit={1}
             showAlerts={["error"]}
           />
-          <Stack style={{ marginTop: "2em", width: "12rem" }} direction="row" spacing={1}>
+          <Stack style={{ marginTop: "1em" }} direction="column" spacing={1}>
             <Chip
               label={predictedClass === null ? "Prediction:" : `Prediction: ${predictedClass}`}
               style={{ justifyContent: "left" }}
