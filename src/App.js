@@ -21,7 +21,7 @@ function App() {
 
     const getClassLabels = async () => {
       const res = await fetch(
-        "https://raw.githubusercontent.com/anishathalye/imagenet-simple-labels/master/imagenet-simple-labels.json"
+        "https://raw.githubusercontent.com/Seohyeong/tfjs-shroomai/master/script/label_map_tfjs.json"
       );
 
       const data = await res.json();
@@ -67,7 +67,12 @@ function App() {
 
       // tf.tidy for automatic memory cleanup
       const [predictedClass, confidence] = tf.tidy(() => {
-        const tensorImg = tf.browser.fromPixels(image).resizeNearestNeighbor([224, 224]).toFloat().expandDims();
+
+        let tensorImg = tf.browser.fromPixels(image).toFloat();
+        tensorImg = tensorImg.div(127.5).sub(1);
+        tensorImg = tf.image.resizeBilinear(tensorImg, [224, 224]);
+        tensorImg = tensorImg.expandDims();
+
         const result = model.predict(tensorImg);
 
         const predictions = result.dataSync();
@@ -89,7 +94,7 @@ function App() {
     <Fragment>
       <Grid container className="App" direction="column" alignItems="center" justifyContent="center" marginTop="12%">
         <Grid item>
-          <h1 style={{ textAlign: "center", marginBottom: "1.5em" }}>MobileNetV3 Image Classifier</h1>
+          <h1 style={{ textAlign: "center", marginBottom: "1.5em" }}>Mushroom Image Classifier</h1>
           <DropzoneArea
             acceptedFiles={["image/*"]}
             dropzoneText={"Add an image"}
