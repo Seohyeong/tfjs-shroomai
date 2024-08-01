@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     const loadModel = async () => {
-      const model_url = "tfjs/MobileNetV3Large/model.json";
+      const model_url = "tfjs/model_weight_finetune/model.json";
 
       const model = await tf.loadGraphModel(model_url);
 
