@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tfjs-shroomai/static/css/main.e6c13ad2.css",
+    "main.js": "/tfjs-shroomai/static/js/main.691d5d29.js",
+    "index.html": "/tfjs-shroomai/index.html",
+    "main.e6c13ad2.css.map": "/tfjs-shroomai/static/css/main.e6c13ad2.css.map",
+    "main.691d5d29.js.map": "/tfjs-shroomai/static/js/main.691d5d29.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.691d5d29.js"
+  ]
+}
